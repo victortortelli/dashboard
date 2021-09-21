@@ -1,0 +1,153 @@
+.editarPacienteWrapper {
+  padding: 20px;
+  height: 100%;
+}
+
+.containerTituloEditarPaciente {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.buttonCriarPaciente {
+  border: none;
+  padding: 5px;
+  background-color: teal;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  width: fit-content;
+}
+
+.inputAtualizacaoUsuario{
+  border: none;
+  width: 250px;
+  height: 30px;
+  border-bottom: 1px solid gray;
+  margin-left: 5px;
+}
+
+.buttonCriarPaciente {
+  display: flex;
+}
+
+.containerPaciente {
+  display: flex;
+  margin-top: 20px;
+}
+
+.mostrarPaciente {
+  flex: 1;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -4px #000000;
+  box-shadow: 0px 0px 15px -4px #000000;
+}
+
+.atualizarPaciente {
+  flex: 2;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 15px -4px #000000;
+  box-shadow: 0px 0px 15px -4px #000000;
+  margin-left: 20px;
+}
+
+.mostrarPacienteTop {
+  display: flex;
+  align-items: center;
+}
+
+.mostrarPacienteAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mostrarPacienteTopTitulo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  justify-content: space-between;
+
+}
+
+.mostrarPacienteDesc {
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.mostrarPacienteCargo {
+  font-weight: 300;
+}
+
+
+.mostrarPacienteBottomTitulo{
+    font-size: 14px;
+    font-weight: 600;
+    color:rgb(153, 152, 152);
+
+}
+
+.mostrarPacienteBottom{
+    margin-top: 20px;
+}
+
+.mostrarPacienteBottomDados{
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    color: #444;
+
+}
+
+.mostrarPacienteBottomInfo{
+    font-size: 16px;
+}
+
+.mostrarPacienteBottomId{
+    margin-left: 10px;
+}
+
+.atualizarPacienteTitulo{
+    font-size: 24px;
+    font-weight: 600;
+
+}
+
+.atualizarPacienteFormulario{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.atualizarPacienteItem{
+    display: flex;
+    margin: 20px 0px;
+    height: 18px;
+}
+
+.atualizarPacienteInput{
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+
+}
+
+.atualizarPacienteButton{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
+
+}
+
+.atualizarPacienteLabel{
+  margin-top: 15px;
+  font-weight: 600;
+}

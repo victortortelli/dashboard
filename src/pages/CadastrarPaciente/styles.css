@@ -1,0 +1,72 @@
+.cadastrarPacienteWrapper{
+    flex: 4;
+}
+
+.cadastrarPacienteForm{
+    flex-direction: column;
+    margin-left: 20vw;
+}
+
+.cadastrarPacienteTitulo{
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.cadastrarPacienteItem{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.cadastrarPacienteItem>label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color:gray;
+}
+
+.cadastrarPacienteItem>input{
+    height: 20px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+
+}
+
+.cadastrarPacienteGenero>input{
+margin-top: 15px;
+
+}
+
+.cadastrarPacienteGenero>label{
+    margin: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+.cadastrarPacienteAtivo{
+    height: 40px;
+    border-radius: 5px;
+
+}
+
+.cadastrarPacienteEstado{
+    height: 40px;
+    border-radius: 5px;
+
+}
+
+
+.cadastrarPacienteBotao{
+    width: 400px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+    padding: 7px 10px;
+    font-weight: 600;
+    border-radius: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}

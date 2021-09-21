@@ -1,0 +1,64 @@
+.smallWidget{
+    flex: 1;
+    -webkit-box-shadow: 0px 0px 15px -4px #000000;
+    box-shadow: 0px 0px 15px -4px #000000;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.smallWidgetTitle{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.smallWidgetImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.listaSmallWidget{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.itensListaSmallWidget{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0px;
+}
+
+.usuarioSmallWidget{
+    display: flex;
+    flex-direction: column;
+}
+
+.nomeSmallWidget{
+    font-weight: 600;
+
+}
+
+.tituloNomeSmallWidget{
+    font-weight: 300;
+
+}
+
+.smallButtonWidget{
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 10px;
+    background-color: #eeeef7;
+    color: #555;
+    cursor: pointer;
+
+}
+
+.smallWidgetIcon{
+    font-style: 16px !important;
+    margin-right: 5px;
+}

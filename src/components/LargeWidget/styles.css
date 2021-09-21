@@ -1,0 +1,62 @@
+.largeWidget{
+    flex: 2;
+    -webkit-box-shadow: 0px 0px 15px -4px #000000;
+    box-shadow: 0px 0px 15px -4px #000000;
+    padding: 20px;
+}
+
+.tituloLargeWidget{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.tabelaLargeWidget{
+    width: 100%;
+    border-spacing: 20px;
+
+}
+
+.userLargeWidget{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+
+}
+
+.thLargeWidget{
+    text-align: left;
+}
+
+.dataLargeWidget,.valorLargeWidget{
+    font-weight: 300;
+}
+
+.ImgLargeWidget{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+
+}
+
+.buttonLargeWidget{
+    padding: 5px 7px;
+    border: none;
+    border-radius: 10px;
+
+}
+
+.buttonLargeWidget.Approved{
+    background-color: #e5faf2;
+    color: #3bb077;
+}
+.buttonLargeWidget.Pending{
+    background-color: #ebf1fe;
+    color: #2a7ade;
+}
+.buttonLargeWidget.Declined{
+    background-color: #fff0f1;
+    color: #d95087;
+}
+

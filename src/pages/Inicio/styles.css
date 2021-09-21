@@ -1,0 +1,9 @@
+.inicio{
+    flex: 7.5;
+    max-width: 100vw;
+}
+
+.inicioWidgets{
+    display: flex;
+    margin: 20px;
+}

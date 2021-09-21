@@ -1,0 +1,14 @@
+main {
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  min-width: fit-content;
+}
+
+section {
+  width: 100%;
+}
+
+
