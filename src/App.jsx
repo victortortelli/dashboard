@@ -9,6 +9,8 @@ import CadastrarPaciente from "./pages/CadastrarPaciente";
 import ListaConsulta from "./pages/ListaConsulta";
 import CriarConsulta from "./pages/CriarConsulta";
 import Relatorios from "./pages/Relatorios";
+import FilaAtendimento from "./pages/FilaAtendimento";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -43,6 +45,12 @@ function App() {
             <Route path="/relatorios">
               <Relatorios />
             </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/fila_atendimento">
+              <FilaAtendimento />
+            </Route> 
           </Switch>
         </section>
       </main>

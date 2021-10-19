@@ -7,12 +7,11 @@ export default function LargeWidget() {
   };
   return (
     <div className="largeWidget">
-      <h3 className="tituloLargeWidget">Latest Transactions</h3>
+      <h3 className="tituloLargeWidget">Funcionários</h3>
       <table className="tabelaLargeWidget">
         <tr className="trLargeWidget">
-          <th className="thLargeWidget">Costumer</th>
-          <th className="thLargeWidget">Date</th>
-          <th className="thLargeWidget">Amount</th>
+          <th className="thLargeWidget">Nome</th>
+          <th className="thLargeWidget">Cargo</th>
           <th className="thLargeWidget">Status</th>
         </tr>
 
@@ -20,16 +19,30 @@ export default function LargeWidget() {
           <td className="userLargeWidget">
             {" "}
             <img
-              src="https://i.imgur.com/NjZikgz.jpg"
+              src="https://i.imgur.com/bZc7Lbb.jpg"
               alt=""
               className="ImgLargeWidget"
             />
-            <span className="nomeLargeWidget">Vitão O Cara</span>
+            <span className="nomeLargeWidget">Edson Reis</span>
           </td>
-          <td className="dataLargeWidget">2 Jun 2021</td>
-          <td className="valorLargeWidget">@122.00</td>
+          <td className="dataLargeWidget">Médico</td>
           <td className="statusLargeWidget">
-            <Button type="Approved" />
+            <Button type="Trabalhando" />
+          </td>
+        </tr>
+        <tr className="trLargeWidget">
+          <td className="userLargeWidget">
+            {" "}
+            <img
+              src="https://i.imgur.com/ASx4YMr.jpg"
+              alt=""
+              className="ImgLargeWidget"
+            />
+            <span className="nomeLargeWidget">Giovani Machado</span>
+          </td>
+          <td className="dataLargeWidget">Enfermeiro</td>
+          <td className="statusLargeWidget">
+            <Button type="Folga" />
           </td>
         </tr>
         <tr className="trLargeWidget">
@@ -40,28 +53,11 @@ export default function LargeWidget() {
               alt=""
               className="ImgLargeWidget"
             />
-            <span className="nomeLargeWidget">Vitão O Cara</span>
+            <span className="nomeLargeWidget">Victor Tortelli</span>
           </td>
-          <td className="dataLargeWidget">2 Jun 2021</td>
-          <td className="valorLargeWidget">@122.00</td>
+          <td className="dataLargeWidget">Atendente</td>
           <td className="statusLargeWidget">
-            <Button type="Declined" />
-          </td>
-        </tr>
-        <tr className="trLargeWidget">
-          <td className="userLargeWidget">
-            {" "}
-            <img
-              src="https://i.imgur.com/NjZikgz.jpg"
-              alt=""
-              className="ImgLargeWidget"
-            />
-            <span className="nomeLargeWidget">Vitão O Cara</span>
-          </td>
-          <td className="dataLargeWidget">2 Jun 2021</td>
-          <td className="valorLargeWidget">@122.00</td>
-          <td className="statusLargeWidget">
-            <Button type="Pending" />
+            <Button type="Intervalo" />
           </td>
         </tr>
       </table>

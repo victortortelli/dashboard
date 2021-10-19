@@ -24,10 +24,12 @@ export default function Sidebar() {
                 Início
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <AirlineSeatLegroomNormal className="sidebarIcon" />
-              Fila de atendimento
-            </li>
+            <Link to={"/fila_atendimento"} style={{ textDecoration: "none" }}>
+              <li className="sidebarListItem">
+                <AirlineSeatLegroomNormal className="sidebarIcon" />
+                Fila de Atendimento
+              </li>
+            </Link>
             <Link to={"/relatorios"} style={{ textDecoration: "none" }}>
               <li className="sidebarListItem">
                 <Timeline className="sidebarIcon" />

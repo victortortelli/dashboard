@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import InputMask from "react-input-mask";
 import axios from "axios";
 
+
 const api = axios.create({
   baseURL: "http://localhost:3333/paciente",
 });
@@ -197,7 +198,7 @@ export default function EditarPaciente() {
                 <span className="mostrarPacienteDesc">Gênero:</span>
                 <select
                   onChange={(e) => handle(e)}
-                  value={data.genero}
+                  //value={data.genero}
                   name="genero"
                   id="genero"
                   placeholder={data.genero}

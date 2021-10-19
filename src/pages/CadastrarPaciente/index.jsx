@@ -69,7 +69,7 @@ export default function CadastrarPaciente() {
         className="cadastrarPacienteForm"
       >
         <div className="cadastrarPacienteItem">
-          <label>Nome Completo</label>
+          <label>Nome Completo*</label>
           <input
             onChange={(e) => handle(e)}
             id="nome"
@@ -80,7 +80,7 @@ export default function CadastrarPaciente() {
         </div>
 
         <div className="cadastrarPacienteItem">
-          <label>Data de Nascimento</label>
+          <label>Data de Nascimento*</label>
           <input
             onChange={(e) => handle(e)}
             id="dataNasc"
@@ -91,7 +91,7 @@ export default function CadastrarPaciente() {
         </div>
 
         <div className="cadastrarPacienteItem">
-          <label>Gênero</label>
+          <label>Gênero*</label>
           <select
             onChange={(e) => handle(e)}
             value={data.genero}
@@ -101,7 +101,7 @@ export default function CadastrarPaciente() {
           >
             <option value="masculino">Masculino</option>
             <option value="feminino">Feminino</option>
-            <option value="feminino">Outro</option>
+            <option value="outro">Outro</option>
           </select>
         </div>
 
@@ -117,7 +117,7 @@ export default function CadastrarPaciente() {
         </div>
 
         <div className="cadastrarPacienteItem">
-          <label>Número Cartão SUS</label>
+          <label>Número Cartão SUS*</label>
           <InputMask
             mask="999 9999 9999 9999"
             maskChar=""
@@ -161,6 +161,16 @@ export default function CadastrarPaciente() {
             placeholder="Mansões Santo Antônio"
           />
         </div>
+        <div className="cadastrarPacienteItem">
+          <label>Complemento</label>
+          <input
+            onChange={(e) => handle(e)}
+            id="complemento"
+            value={data.complemento}
+            type="text"
+            placeholder="AP 102 B"
+          />
+        </div>
 
         <div className="cadastrarPacienteItem">
           <label>Cidade</label>
@@ -182,6 +192,7 @@ export default function CadastrarPaciente() {
             id="estado"
             className="cadastrarPacienteEstado"
           >
+            <option value="">Escolher</option>
             <option value="AC">Acre</option>
             <option value="AL">Alagoas</option>
             <option value="AP">Amapá</option>
@@ -218,7 +229,7 @@ export default function CadastrarPaciente() {
             id="escola"
             value={data.escola}
             type="text"
-            placeholder="Escola Municipal Pres. Getúlio Vargas"
+            placeholder="Unip"
           />
         </div>
         <div className="cadastrarPacienteItem">
@@ -228,7 +239,7 @@ export default function CadastrarPaciente() {
             id="industria"
             value={data.industria}
             type="text"
-            placeholder="Marceneiro"
+            placeholder="Programador"
           />
         </div>
 

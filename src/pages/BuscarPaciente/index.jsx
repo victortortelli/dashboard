@@ -15,7 +15,7 @@ export default function BuscarPaciente() {
   };
 
   const redirectNovaConsulta = () => {
-    history.push(`/consulta/criar/`);
+    history.push(`/consulta/criar/${data.cartaoSus}`);
   }
 
   const columns = [

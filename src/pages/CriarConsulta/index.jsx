@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./styles.css";
 import InputMask from "react-input-mask";
+import { useHistory } from "react-router-dom";
 
 const api = axios.create({
   baseURL: "http://localhost:3333/consulta",
@@ -11,13 +12,19 @@ const api = axios.create({
 export default function CriarConsulta() {
   const [data, setData] = useState({
     data: "",
-    status: "",
+    status: "Em espera",
     urgencia: "",
     cartaoSusPaciente: "",
     // sintomas: "",
     // diagnostico: "",
     // permitir edição apenas pela tela do médico
   });
+
+  const history = useHistory();
+
+  const redirectFila = () => {
+    history.push(`/consulta/lista`);
+  };
 
   function submit(e) {
     e.preventDefault();
@@ -26,13 +33,15 @@ export default function CriarConsulta() {
       status: data.status,
       urgencia: data.urgencia,
       cartaoSusPaciente: data.cartaoSusPaciente,
-    //   sintomas: data.sintomas,
-    //   diagnostico: data.diagnostico,
-    // permitir edição apenas pela tela do médico
-    }
-    );
+      //   sintomas: data.sintomas,
+      //   diagnostico: data.diagnostico,
+      // permitir edição apenas pela tela do médico
+    });
+    redirectFila();
     // console.log(data.data, data.status, data.urgencia, data.cartaoSusPaciente)
   }
+
+  
 
   function handle(e) {
     const newdata = { ...data };
@@ -53,7 +62,7 @@ export default function CriarConsulta() {
           <label>Número Cartão SUS</label>
           <InputMask
             mask="999 9999 9999 9999"
-            maskChar = ""
+            maskChar=""
             defaultvalue={data.cartaoSusPaciente}
             onChange={(e) => handle(e)}
             //adicionar verificação de cartão Sus
@@ -70,11 +79,10 @@ export default function CriarConsulta() {
             id="data"
             value={data.data}
             type="date"
-            placeholder="12/09/2021"
           />
         </div>
 
-        <div className="cadastrarPacienteItem">
+        {/* <div className="cadastrarPacienteItem">
           <label>Status</label>
           <input
             onChange={(e) => handle(e)}
@@ -83,7 +91,18 @@ export default function CriarConsulta() {
             type="text"
             defaultValue="Aberta"
           />
-        </div>
+          <select
+            onChange={(e) => handle(e)}
+            value={data.status}
+            name="status"
+            id="status"
+            defaultValue="Em espera"
+          >
+            <option value="Em espera">Em espera</option>
+            <option value="Em espera">Em espera</option>
+            <option value="Em espera">Em espera</option>
+          </select>
+        </div> */}
 
         <div className="cadastrarPacienteItem">
           <label>Urgência</label>
@@ -97,6 +116,7 @@ export default function CriarConsulta() {
             <option value="nu">Não Urgente</option>
             <option value="pu">Pouco Urgente</option>
             <option value="ur">Urgente</option>
+            <option value="mu">Muito Urgente</option>
             <option value="em">Emergência</option>
           </select>
         </div>

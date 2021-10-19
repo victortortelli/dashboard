@@ -5,7 +5,7 @@ import { Visibility } from '@material-ui/icons'
 export default function SmallWidget() {
     return (
         <div className="smallWidget">
-            <span className="smallWidgetTitle">New Join Members</span>
+            <span className="smallWidgetTitle">Consultas em andamento</span>
             <ul className="listaSmallWidget">
                 <li className="itensListaSmallWidget">
                     <img src="https://i.imgur.com/NjZikgz.jpg" alt="" className="smallWidgetImg" />

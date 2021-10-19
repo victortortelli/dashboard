@@ -1,5 +1,5 @@
 .largeWidget{
-    flex: 2;
+    flex: 1;
     -webkit-box-shadow: 0px 0px 15px -4px #000000;
     box-shadow: 0px 0px 15px -4px #000000;
     padding: 20px;
@@ -47,15 +47,15 @@
 
 }
 
-.buttonLargeWidget.Approved{
+.buttonLargeWidget.Trabalhando{
     background-color: #e5faf2;
     color: #3bb077;
 }
-.buttonLargeWidget.Pending{
+.buttonLargeWidget.Intervalo{
     background-color: #ebf1fe;
     color: #2a7ade;
 }
-.buttonLargeWidget.Declined{
+.buttonLargeWidget.Folga{
     background-color: #fff0f1;
     color: #d95087;
 }
