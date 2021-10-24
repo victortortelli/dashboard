@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Farmacia() {
+export default function Admin() {
     return (
         <div>
             

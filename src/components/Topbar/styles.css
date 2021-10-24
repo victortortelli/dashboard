@@ -20,9 +20,9 @@
 .logo{
     width: 100%;
     height: 100%;
-    cursor: pointer;
     color:white;
     font-size: 30px;
+    cursor: pointer;
 }
 
 
@@ -37,28 +37,6 @@
     z-index: -1;
     margin-right: 15px;
     color: white;
-}
-
-.topIconBadge{
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    top: 0;
-    right: 0px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center; /*centraliza o numero dentro do circulo */
-    justify-content: center;
-    font-size: 10px;
-    z-index: 0;
-}
-
-.topAvatar{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
     cursor: pointer;
 }
 

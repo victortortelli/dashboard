@@ -21,12 +21,6 @@ export default function SidebarMedico() {
                 Início
               </li>
             </Link>
-            <Link to={"/fila_atendimento"} style={{ textDecoration: "none" }}>
-              <li className="sidebarListItem">
-                <AirlineSeatLegroomNormal className="sidebarIcon" />
-                Fila de Atendimento
-              </li>
-            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">

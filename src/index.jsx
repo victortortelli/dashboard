@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import Medico from './Medico';
+import Login from './Login';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Medico />
+    <Login />
   </React.StrictMode>,
   document.getElementById('root')
 );

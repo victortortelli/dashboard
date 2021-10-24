@@ -1,10 +1,9 @@
 import React from "react";
 import "./styles.css";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import InputMask from "react-input-mask";
 import axios from "axios";
-
 
 const api = axios.create({
   baseURL: "http://localhost:3333/paciente",
@@ -12,6 +11,7 @@ const api = axios.create({
 
 export default function EditarPaciente() {
   const [data, setData] = useState([]); //para mostrar os dados atuais
+
   const [dataAtt, setDataAtt] = useState({
     //para enviar para o banco a atualização
     cartaoSus: "",
@@ -59,6 +59,7 @@ export default function EditarPaciente() {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setDataAtt(newdata);
+    console.log(newdata)
   }
 
   useEffect(() => {
@@ -205,8 +206,10 @@ export default function EditarPaciente() {
                   defaultvalue={dataAtt.genero}
                   className="inputAtualizacaoUsuario"
                 >
+                  <option>Escolher</option>
                   <option value="Masculino">Masculino</option>
                   <option value="Feminino">Feminino</option>
+                  <option value="Não Binário">Não Binário</option>
                   <option value="Outro">Outro</option>
                 </select>
               </div>
@@ -219,20 +222,6 @@ export default function EditarPaciente() {
                   defaultvalue={dataAtt.rg}
                   type="text"
                   placeholder={data.rg}
-                  className="inputAtualizacaoUsuario"
-                />
-              </div>
-
-              <div className="mostrarPacienteBottomDados">
-                <span className="mostrarPacienteDesc">Número Cartão SUS:</span>
-                <InputMask
-                  mask="999 9999 9999 9999"
-                  maskChar=""
-                  dafeultvalue={dataAtt.cartaoSus}
-                  onChange={(e) => handle(e)}
-                  type="text"
-                  id="cartaoSus"
-                  placeholder={data.cartaoSus}
                   className="inputAtualizacaoUsuario"
                 />
               </div>
@@ -294,7 +283,7 @@ export default function EditarPaciente() {
                   name="estado"
                   id="estado"
                   className="inputAtualizacaoUsuario"
-                  defaultcalue={dataAtt.estado}
+                  defaultvalue={dataAtt.estado}
                 >
                   <option>Escolher</option>
                   <option value="AC">Acre</option>

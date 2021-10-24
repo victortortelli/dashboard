@@ -4,18 +4,23 @@ import { useState, useEffect } from "react";
 import MaterialTable from "material-table";
 //import { BrowserRouter as Route } from "react-router-dom";
 import { useHistory, Link } from "react-router-dom";
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://localhost:3333",
+});
 
 export default function BuscarPaciente() {
   const [data, setData] = useState([]);
 
   const history = useHistory();
 
-  const redirectEditar = () => {
-    history.push(`/paciente/id/${data.cartaoSus}`);
+  const redirectEditar = ({cartaoSus}) => {
+    history.push(`/paciente/id/${cartaoSus}`);
   };
 
-  const redirectNovaConsulta = () => {
-    history.push(`/consulta/criar/${data.cartaoSus}`);
+  const redirectNovaConsulta = ({cartaoSus}) => {
+    history.push(`/consulta/criar/${cartaoSus}`);
   }
 
   const columns = [
@@ -25,10 +30,12 @@ export default function BuscarPaciente() {
     { title: "Cartão SUS", field: "cartaoSus" },
   ];
 
-  useEffect(() => {
-    fetch("http://localhost:3333/paciente")
-      .then((resp) => resp.json())
-      .then((resp) => setData(resp));
+  useEffect(() => {  
+    api.get("/paciente")
+    .then((response) => setData(response.data))
+    .catch((err) =>{
+      console.error("ops! ocorreu um erro" + err);
+    });
   }, []);
 
   return (
@@ -41,21 +48,15 @@ export default function BuscarPaciente() {
           {
             icon: "add",
             tooltip: "Nova Consulta",
-            onClick: (event, rowData) => redirectNovaConsulta(),
+            onClick: (event, rowData) => redirectNovaConsulta(rowData),
           },
           {
             icon: "edit",
             tooltip: "Editar",
-            onClick: (event, rowData) => redirectEditar(),
+            onClick: (event, rowData) => redirectEditar(rowData),
           },
         ]}
       />
-      <Link
-        to={{
-          pathname: `/paciente/id/${data.cartaoSus}`,
-          state: data.cartaoSus
-        }}
-       />
     </div>
   );
 }

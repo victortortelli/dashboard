@@ -12,7 +12,6 @@ export default function Medico() {
   return (
     <Router>
       <header>
-        <Topbar />
       </header>
       <main>
         <nav>

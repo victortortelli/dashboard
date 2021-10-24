@@ -2,32 +2,39 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.css";
-import { useHistory } from "react-router-dom";
+
+const api = axios.create({
+  baseURL: "http://localhost:3333",
+});
 
 export default function EditarConsultaMedico() {
-  const api = axios.create({
-    baseURL: "http://localhost:3333/consulta",
-  });
-
   const [data, setData] = useState([]); //para mostrar os dados atuais
 
   const [dataAtt, setDataAtt] = useState({
     id: "",
-    data: "",
     status: "Atendida_teste",
-    urgencia: "",
-    cartaoSusPaciente: "",
     sintomas: "",
     diagnostico: "",
     // permitir edição apenas pela tela do médico
   });
 
+  const[dadosPaciente, setDadosPaciente] = useState();
+
+  useEffect(() => {   //USAR ESSA PORRA NO RESTO DO PROGRAMA!!!!!
+    api.get("/paciente/123123412341234")
+    .then((response) => setDadosPaciente(response.data))
+    .catch((err) =>{
+      console.error("ops! ocorreu um erro" + err);
+    });
+  }, []);
+
   function submit(e) {
     const r = window.confirm("Quer atualizar os dados?");
     if (r === true) {
+      //para enviar os dados atualizados ao clicar no botão
       e.preventDefault();
-      api.put("/", {
-        status: dataAtt.status,
+      api.put(`/consulta/37`, {
+        status: "Atendida_teste",
         sintomas: dataAtt.sintomas,
         diagnostico: dataAtt.diagnostico,
         // permitir edição apenas pela tela do médico
@@ -40,6 +47,7 @@ export default function EditarConsultaMedico() {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setDataAtt(newdata);
+    console.log(newdata);
   }
 
   useEffect(() => {
@@ -49,88 +57,90 @@ export default function EditarConsultaMedico() {
   }, []);
 
   return (
-    <div className="editarPacienteWrapper">
-      <div className="containerTituloEditarPaciente">
-        <h1 className="tituloEditarPaciente">Editar consulta</h1>
+    <div className="editarPacienteWrapperCM">
+      <div className="containerTituloEditarPacienteCM">
+        <h1>Editar consulta</h1>
       </div>
-      <div className="containerPaciente">
-        <div className="mostrarPaciente">
-          <div className="mostrarPacienteBottom">
-            <span className="mostrarPacienteBottomTitulo">Dados Pessoais</span>
+      <div className="containerPacienteCM">
+        <div className="mostrarPacienteCM">
+          <div className="mostrarPacienteBottomCM">
+            <span className="mostrarPacienteBottomTituloCM">Dados Pessoais</span>
 
-            <div className="mostrarPacienteBottomDados">
-              <span className="mostrarPacienteDesc">Nome:</span>
-              <span className="mostrarPacienteBottomId">{data.nome}</span>
+            <div className="mostrarPacienteBottomDadosCM">
+              <span className="mostrarPacienteDescCM">Nome:</span>
+              <span className="mostrarPacienteBottomIdCM">{dadosPaciente?.nome}</span>
             </div>
 
-            <div className="mostrarPacienteBottomDados">
-              <span className="mostrarPacienteDesc">Data de nascimento:</span>
-              <span className="mostrarPacienteBottomId">{data.dataNasc}</span>
+            <div className="mostrarPacienteBottomDadosCM">
+              <span className="mostrarPacienteDescCM">Data de nascimento:</span>
+              <span className="mostrarPacienteBottomIdCM">{dadosPaciente?.dataNasc}</span>
             </div>
 
-            <div className="mostrarPacienteBottomDados">
-              <span className="mostrarPacienteDesc">Gênero:</span>
-              <span className="mostrarPacienteBottomId">{data.genero}</span>
+            <div className="mostrarPacienteBottomDadosCM">
+              <span className="mostrarPacienteDescCM">Gênero:</span>
+              <span className="mostrarPacienteBottomIdCM">{dadosPaciente?.genero}</span>
             </div>
 
-            <div className="mostrarPacienteBottomDados">
-              <span className="mostrarPacienteDesc">Número Cartão SUS:</span>
-              <span className="mostrarPacienteBottomId">{data.cartaoSus}</span>
+            <div className="mostrarPacienteBottomDadosCM">
+              <span className="mostrarPacienteDescCM">Número Cartão SUS:</span>
+              <span className="mostrarPacienteBottomIdCM">{dadosPaciente?.cartaoSus}</span>
             </div>
 
-            <span className="mostrarPacienteBottomTitulo">
+            <span className="mostrarPacienteBottomTituloCM">
               Dados da consulta
             </span>
 
-            <div className="mostrarPacienteBottomDados">
-              <span className="mostrarPacienteDesc">ID:</span>
-              <span className="mostrarPacienteBottomId">{data.id}</span>
+            <div className="mostrarPacienteBottomDadosCM">
+              <span className="mostrarPacienteDescCM">ID:</span>
+              <span className="mostrarPacienteBottomIdCM">{data.id}</span>
             </div>
 
-            <div className="mostrarPacienteBottomDados">
-              <span className="mostrarPacienteDesc">Urgência:</span>
-              <span className="mostrarPacienteBottomId">{data.urgencia}</span>
+            <div className="mostrarPacienteBottomDadosCM">
+              <span className="mostrarPacienteDescCM">Urgência:</span>
+              <span className="mostrarPacienteBottomIdCM">{data.urgencia}</span>
             </div>
 
-            <div className="mostrarPacienteBottomDados">
-              <span className="mostrarPacienteDesc">Data:</span>
-              <span className="mostrarPacienteBottomId">{data.data}</span>
+            <div className="mostrarPacienteBottomDadosCM">
+              <span className="mostrarPacienteDescCM">Data:</span>
+              <span className="mostrarPacienteBottomIdCM">{data.data}</span>
             </div>
           </div>
         </div>
 
-        <div className="atualizarPaciente">
-          <form onSubmit={(e) => submit(e, data.cartaoSus)} action="">
-            <div className="mostrarPacienteBottom">
-              <span className="mostrarPacienteBottomTitulo">
-                Alterar dados da consulta
+        <div className="atualizarPacienteCM">
+          <form onSubmit={(e) => submit(e)} action="">
+            <div>
+              <span className="mostrarPacienteBottomTituloCM">
+                Completar dados da consulta
               </span>
 
-              <div className="mostrarPacienteBottomDados">
-                <span className="mostrarPacienteDesc">Sintomas:</span>
+              <div className="mostrarPacienteBottomDadosCM">
+                <span className="mostrarPacienteDescCM">Sintomas:</span>
                 <input
                   onChange={(e) => handle(e)}
-                  id="nome"
-                  className="inputAtualizacaoUsuario"
+                  id="sintomas"
+                  className="inputAtualizacaoUsuarioCM"
                   type="text"
+                  defaultvalue={dataAtt.sintomas}
                   placeholder={data.sintomas}
-                  defaultValue={dataAtt.sintomas}
                 />
               </div>
 
-              <div className="mostrarPacienteBottomDados">
-                <span className="mostrarPacienteDesc">Diagnóstico:</span>
+              <div className="mostrarPacienteBottomDadosCM">
+                <span className="mostrarPacienteDescCM">Diagnóstico:</span>
                 <input
                   onChange={(e) => handle(e)}
-                  id="nome"
-                  className="inputAtualizacaoUsuario"
+                  id="diagnostico"
+                  className="inputAtualizacaoUsuarioCM"
                   type="text"
+                  defaultvalue={dataAtt.diagnostico}
                   placeholder={data.diagnostico}
-                  defaultValue={dataAtt.diagnostico}
                 />
               </div>
             </div>
-            <button className="atualizarPacienteButton">Atualizar dados e gerar receita</button>
+            <button className="atualizarPacienteButtonCM">
+              Atualizar dados e gerar receita
+            </button>
           </form>
         </div>
       </div>

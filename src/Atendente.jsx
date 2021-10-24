@@ -1,6 +1,6 @@
 import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
-import "./App.css";
+import "./Atendente.css";
 import Inicio from "./pages/Inicio";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BuscarPaciente from "./pages/BuscarPaciente";
@@ -12,11 +12,11 @@ import Relatorios from "./pages/Relatorios";
 import FilaAtendimento from "./pages/FilaAtendimento";
 import Login from "./pages/Login";
 
-function App() {
+function Atendente() {
   return (
     <Router>
       <header>
-        <Topbar />
+        {/* ficava a topbar aqui, apaguei pq estava duplicando apos o login */}
       </header>
       <main>
         <nav>
@@ -58,4 +58,4 @@ function App() {
   );
 }
 
-export default App;
+export default Atendente;
