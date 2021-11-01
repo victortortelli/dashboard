@@ -39,7 +39,7 @@ export default function EditarConsultaMedico() {
         diagnostico: dataAtt.diagnostico,
         // permitir edição apenas pela tela do médico
       });
-      window.location.reload(false);
+      //window.location.reload(false);
     }
   }
 

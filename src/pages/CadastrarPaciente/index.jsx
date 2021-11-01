@@ -100,8 +100,10 @@ export default function CadastrarPaciente() {
             id="genero"
             className="cadastrarPacienteEstado"
           >
+            <option value="">Escolher</option>
             <option value="masculino">Masculino</option>
             <option value="feminino">Feminino</option>
+            <option value="feminino">Não Binário</option>
             <option value="outro">Outro</option>
           </select>
         </div>

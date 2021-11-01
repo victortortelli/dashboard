@@ -1,5 +1,4 @@
 import React from "react";
-import Topbar from "./components/Topbar";
 import "./Medico.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FilaAtendimento from "./pages/FilaAtendimento";
@@ -7,6 +6,7 @@ import InicioMedico from "./pages/InicioMedico";
 import SidebarMedico from "./components/SidebarMedico";
 import AtenderConsulta from "./pages/AtenderConsulta";
 import EditarConsultaMedico from "./pages/EditarConsultaMedico"
+import BuscarPaciente from "./pages/BuscarPaciente";
 
 export default function Medico() {
   return (
@@ -30,6 +30,9 @@ export default function Medico() {
             </Route>
             <Route path="/consulta/editar">
             <EditarConsultaMedico />
+            </Route>
+            <Route path="/paciente/buscar">
+              <BuscarPaciente />
             </Route>
           </Switch>
         </section>

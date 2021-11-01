@@ -2,8 +2,7 @@ import React from "react";
 import "./styles.css";
 import { useState, useEffect } from "react";
 import MaterialTable from "material-table";
-//import { BrowserRouter as Route } from "react-router-dom";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const api = axios.create({

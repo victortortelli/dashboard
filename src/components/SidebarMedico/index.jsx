@@ -2,9 +2,8 @@ import React from "react";
 import "./styles.css";
 import {
   Dashboard,
-  AirlineSeatLegroomNormal,
   LocalHospital,
-  Timeline,
+  Search
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -30,6 +29,15 @@ export default function SidebarMedico() {
               <li className="sidebarListItem">
                 <LocalHospital className="sidebarIcon" />
                 Atender Consulta
+              </li>
+            </Link>
+          </ul>
+          <h3 className="sidebarTitle">Pacientes</h3>
+          <ul className="sidebarList">
+            <Link to={"/paciente/buscar"} style={{ textDecoration: "none" }}>
+              <li className="sidebarListItem">
+                <Search className="sidebarIcon" />
+                Buscar
               </li>
             </Link>
           </ul>
