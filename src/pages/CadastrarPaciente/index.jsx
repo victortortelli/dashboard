@@ -76,7 +76,7 @@ export default function CadastrarPaciente() {
             id="nome"
             value={data.nome}
             type="text"
-            placeholder="Victor Putton Tortelli de Souza"
+            placeholder="Digite aqui..."
           />
         </div>
 
@@ -255,6 +255,8 @@ export default function CadastrarPaciente() {
             id="email"
             placeholder="victor.souza100@aluno.unip.br"
           />
+          <br />
+          <span>(*) Itens obrigatórios</span>
         </div>
         <button className="cadastrarPacienteBotao">Criar</button>
       </form>

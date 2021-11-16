@@ -6,8 +6,7 @@ import {
   LocalHospital,
   FormatListBulleted,
   Search,
-  PersonAdd,
-  Timeline,
+  PersonAdd
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -28,12 +27,6 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <AirlineSeatLegroomNormal className="sidebarIcon" />
                 Fila de Atendimento
-              </li>
-            </Link>
-            <Link to={"/relatorios"} style={{ textDecoration: "none" }}>
-              <li className="sidebarListItem">
-                <Timeline className="sidebarIcon" />
-                Relatórios
               </li>
             </Link>
           </ul>

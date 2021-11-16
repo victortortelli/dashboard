@@ -21,7 +21,7 @@ export default function Topbar() {
         </div>
         <div className="topRight">
           <button type="submit" className="logoffButton" onClick={() => {redirectLogin()}}>
-            Log off
+            Sair
           </button>
         </div>
       </div>

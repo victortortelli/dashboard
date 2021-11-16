@@ -8,16 +8,15 @@ const api = axios.create({
 });
 
 export default function CriarUsuario() {
-
   const cadastroSucesso = () => {
     alert("Usuário cadastrado com sucesso!");
-    document.getElementById('username').value = '' //limpa os campos
-    document.getElementById('password').value = ''
-    document.getElementById('role').value = ''
-    data.username = ''; //limpa as variaveis
-    data.role = '';
-    data.password = '';
-  }
+    document.getElementById("username").value = ""; //limpa os campos
+    document.getElementById("password").value = "";
+    document.getElementById("role").value = "";
+    data.username = ""; //limpa as variaveis
+    data.role = "";
+    data.password = "";
+  };
 
   const [data, setData] = useState({
     username: "",

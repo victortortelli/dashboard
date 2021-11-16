@@ -23,7 +23,7 @@ export default function Inicio() {
         />
       </div>
       <div className="inicioWidgets">
-        <SmallWidget />
+        {/* <SmallWidget /> */}
         <LargeWidget />
       </div>
     </div>

@@ -53,7 +53,7 @@ export default function Login() {
   return (
     <div>
       <div className="user-login">
-      <h1 className="user-login-title">Login</h1>
+      <h1 className="user-login-title">Acessar</h1>
       <form>
         <div className="user-login-form-control">
           <label htmlFor="username">Usuário</label>

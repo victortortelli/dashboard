@@ -1,0 +1,12 @@
+.cadastrarPacienteWrapper {
+  flex: 4;
+}
+.cadastrarPacienteTitulo {
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+.botaoDownload{
+    margin-left: 55px;
+    margin-top: 10px;
+}
