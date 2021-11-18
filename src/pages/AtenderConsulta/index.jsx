@@ -2,15 +2,18 @@ import React from "react";
 import "./styles.css";
 import { useState, useEffect } from "react";
 import MaterialTable from "material-table";
-import { useHistory, BrowserRouter as Route } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 
 export default function AtenderConsulta() {
   const [data, setData] = useState([]);
 
   const history = useHistory();
 
-  const redirectEditar = () => {
-    history.push(`/consulta/editar`);
+  const redirectEditar = ({id}) => {
+    history.push({
+      pathname: '/consulta/editar/',
+      search: `?id=${id}`  
+    });
   };
 
   const columns = [
@@ -38,8 +41,8 @@ export default function AtenderConsulta() {
         actions={[
           {
             icon: "check",
-            tooltip: "Editar",
-            onClick: (event, rowData) => redirectEditar(),
+            tooltip: "Atender",
+            onClick: (event, rowData) => redirectEditar(rowData),
           },
         ]}
       />

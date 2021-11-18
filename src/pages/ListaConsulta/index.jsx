@@ -2,12 +2,16 @@ import React from "react";
 import "./styles.css";
 import { useState, useEffect } from "react";
 import MaterialTable from "material-table";
-import { BrowserRouter as Route } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
+const api = axios.create({
+  baseURL: "http://localhost:3333/consulta",
+});
 
 export default function ListarConsulta() {
   const [data, setData] = useState([]);
-
+  const history = useHistory();
   const columns = [
     { title: "ID Consulta", field: "id" },
     { title: "Cartão SUS", field: "cartaoSusPaciente" },
@@ -23,6 +27,14 @@ export default function ListarConsulta() {
       .then((resp) => setData(resp));
   }, []);
 
+  const excluirConsulta = ({id}) => {
+    const r = window.confirm(`Deseja excluir a consulta com ID: ${id}?`);
+    if (r === true) {
+    api.delete(`/${id}`);
+    history.push(`/inicio`);
+    }
+  };
+
   return (
     <div className="buscarPaciente">
       <MaterialTable
@@ -34,7 +46,7 @@ export default function ListarConsulta() {
           {
             icon: "delete",
             tooltip: "Deletar",
-            // onClick: (event, rowData) => <Route path="/cadastrar_pacientes/" />,
+            onClick: (event, rowData) => excluirConsulta(rowData)
           },
         ]}
       />

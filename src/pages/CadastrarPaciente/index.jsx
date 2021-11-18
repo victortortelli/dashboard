@@ -12,8 +12,11 @@ const api = axios.create({
 export default function CadastrarPaciente() {
   const history = useHistory();
 
-  const redirectEditar = () => {
-    history.push(`/paciente/id/${data.cartaoSus}`);
+  const redirectEditar = ({cartaoSus}) => {
+    history.push({
+      pathname: '/paciente/id/',
+      search: `?cartaoSus=${cartaoSus}`      
+    });
   };
 
   const [data, setData] = useState({
@@ -51,14 +54,13 @@ export default function CadastrarPaciente() {
       genero: data.genero,
       email: data.email,
     });
-    redirectEditar();
+    redirectEditar(data);
   }
 
   function handle(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
-    console.log(newdata);
   }
 
   return (

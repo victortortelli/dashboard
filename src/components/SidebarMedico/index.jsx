@@ -32,7 +32,7 @@ export default function SidebarMedico() {
               </li>
             </Link>
           </ul>
-          <h3 className="sidebarTitle">Pacientes</h3>
+          {/* <h3 className="sidebarTitle">Pacientes</h3>
           <ul className="sidebarList">
             <Link to={"/paciente/buscar"} style={{ textDecoration: "none" }}>
               <li className="sidebarListItem">
@@ -40,7 +40,7 @@ export default function SidebarMedico() {
                 Buscar
               </li>
             </Link>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </div>

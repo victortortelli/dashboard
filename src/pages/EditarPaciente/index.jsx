@@ -1,8 +1,7 @@
 import React from "react";
 import "./styles.css";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import InputMask from "react-input-mask";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import axios from "axios";
 
 const api = axios.create({
@@ -11,6 +10,10 @@ const api = axios.create({
 
 export default function EditarPaciente() {
   const [data, setData] = useState([]); //para mostrar os dados atuais
+
+  const location = useLocation();
+
+  const history = useHistory();
 
   const [dataAtt, setDataAtt] = useState({
     //para enviar para o banco a atualização
@@ -51,22 +54,23 @@ export default function EditarPaciente() {
         genero: dataAtt.genero,
         email: dataAtt.email,
       });
-      window.location.reload(false);
+      history.push(`/paciente/buscar`);
     }
   }
+
 
   function handle(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setDataAtt(newdata);
-    console.log(newdata)
   }
 
   useEffect(() => {
-    fetch(`http://localhost:3333/paciente/123123412341234`)
+    const params = new URLSearchParams(location.search);    
+    fetch(`http://localhost:3333/paciente/${params.get("cartaoSus")}`)
       .then((resp) => resp.json())
       .then((resp) => setData(resp));
-  }, []);
+  }, [location]);
 
   return (
     <div className="editarPacienteWrapper">

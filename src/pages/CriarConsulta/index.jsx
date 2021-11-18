@@ -1,13 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.css";
 import InputMask from "react-input-mask";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 const api = axios.create({
   baseURL: "http://localhost:3333/consulta",
 });
+
 
 export default function CriarConsulta() {
   const [data, setData] = useState({
@@ -20,7 +21,16 @@ export default function CriarConsulta() {
     // permitir edição apenas pela tela do médico
   });
 
+  const location = useLocation();
+
   const history = useHistory();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);    
+    fetch(`http://localhost:3333/paciente/${params.get("cartaoSus")}`)
+      .then((resp) => resp.json())
+      .then((resp) => setData(resp));
+  }, [location]);
 
   const redirectFila = () => {
     history.push(`/consulta/lista`);
@@ -30,24 +40,20 @@ export default function CriarConsulta() {
     e.preventDefault();
     api.post("/", {
       data: data.data,
-      status: data.status,
+      status: "Em espera",
       urgencia: data.urgencia,
-      cartaoSusPaciente: data.cartaoSusPaciente,
+      cartaoSusPaciente: data.cartaoSus,
       //   sintomas: data.sintomas,
       //   diagnostico: data.diagnostico,
       // permitir edição apenas pela tela do médico
     });
     redirectFila();
-    // console.log(data.data, data.status, data.urgencia, data.cartaoSusPaciente)
   }
-
-  
 
   function handle(e) {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setData(newdata);
-    console.log(newdata);
   }
 
   return (
@@ -63,7 +69,7 @@ export default function CriarConsulta() {
           <InputMask
             mask="999 9999 9999 9999"
             maskChar=""
-            defaultvalue={data.cartaoSusPaciente}
+            value={data.cartaoSus}
             onChange={(e) => handle(e)}
             //adicionar verificação de cartão Sus
             type="text"

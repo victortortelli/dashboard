@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.css";
+import { useLocation, useHistory } from "react-router-dom";
 
 const api = axios.create({
   baseURL: "http://localhost:3333",
@@ -9,37 +10,31 @@ const api = axios.create({
 
 export default function EditarConsultaMedico() {
   const [data, setData] = useState([]); //para mostrar os dados atuais
-
+  const history = useHistory();
   const [dataAtt, setDataAtt] = useState({
     id: "",
-    status: "Atendida_teste",
+    status: "",
     sintomas: "",
     diagnostico: "",
     // permitir edição apenas pela tela do médico
   });
 
-  const[dadosPaciente, setDadosPaciente] = useState();
-
-  useEffect(() => {   //USAR ESSA PORRA NO RESTO DO PROGRAMA!!!!!
-    api.get("/paciente/123123412341234")
-    .then((response) => setDadosPaciente(response.data))
-    .catch((err) =>{
-      console.error("ops! ocorreu um erro" + err);
-    });
-  }, []);
-
   function submit(e) {
-    const r = window.confirm("Quer atualizar os dados?");
+    const r = window.confirm("Quer atualizar os dados e gerar a receita?");
     if (r === true) {
-      //para enviar os dados atualizados ao clicar no botão
       e.preventDefault();
-      api.put(`/consulta/37`, {
-        status: "Atendida_teste",
+      api.put(`/consulta/${data.id}`, {
+        status: "Atendida",
         sintomas: dataAtt.sintomas,
         diagnostico: dataAtt.diagnostico,
-        // permitir edição apenas pela tela do médico
       });
-      //window.location.reload(false);
+      api.post(`/receita`, {
+        idConsulta: `${data.id}`,
+      });
+      history.push({
+        pathname: '/gerar_receita',
+        search: `?id=${data.id}`    
+      });
     }
   }
 
@@ -47,14 +42,15 @@ export default function EditarConsultaMedico() {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
     setDataAtt(newdata);
-    console.log(newdata);
   }
+  const location = useLocation();
 
   useEffect(() => {
-    fetch(`http://localhost:3333/consulta/37`)
+    const params = new URLSearchParams(location.search);    
+    fetch(`http://localhost:3333/consulta/${params.get("id")}`)
       .then((resp) => resp.json())
       .then((resp) => setData(resp));
-  }, []);
+  }, [location]);
 
   return (
     <div className="editarPacienteWrapperCM">
@@ -64,27 +60,6 @@ export default function EditarConsultaMedico() {
       <div className="containerPacienteCM">
         <div className="mostrarPacienteCM">
           <div className="mostrarPacienteBottomCM">
-            <span className="mostrarPacienteBottomTituloCM">Dados Pessoais</span>
-
-            <div className="mostrarPacienteBottomDadosCM">
-              <span className="mostrarPacienteDescCM">Nome:</span>
-              <span className="mostrarPacienteBottomIdCM">{dadosPaciente?.nome}</span>
-            </div>
-
-            <div className="mostrarPacienteBottomDadosCM">
-              <span className="mostrarPacienteDescCM">Data de nascimento:</span>
-              <span className="mostrarPacienteBottomIdCM">{dadosPaciente?.dataNasc}</span>
-            </div>
-
-            <div className="mostrarPacienteBottomDadosCM">
-              <span className="mostrarPacienteDescCM">Gênero:</span>
-              <span className="mostrarPacienteBottomIdCM">{dadosPaciente?.genero}</span>
-            </div>
-
-            <div className="mostrarPacienteBottomDadosCM">
-              <span className="mostrarPacienteDescCM">Número Cartão SUS:</span>
-              <span className="mostrarPacienteBottomIdCM">{dadosPaciente?.cartaoSus}</span>
-            </div>
 
             <span className="mostrarPacienteBottomTituloCM">
               Dados da consulta
@@ -122,7 +97,6 @@ export default function EditarConsultaMedico() {
                   className="inputAtualizacaoUsuarioCM"
                   type="text"
                   defaultvalue={dataAtt.sintomas}
-                  placeholder={data.sintomas}
                 />
               </div>
 
@@ -134,7 +108,6 @@ export default function EditarConsultaMedico() {
                   className="inputAtualizacaoUsuarioCM"
                   type="text"
                   defaultvalue={dataAtt.diagnostico}
-                  placeholder={data.diagnostico}
                 />
               </div>
             </div>

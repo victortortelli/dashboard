@@ -3,8 +3,7 @@ import "./styles.css";
 import CardConsulta from "../../components/CardConsulta";
 import Grafico from "../../components/Grafico";
 import { dadosConsulta } from "../../dadosTeste";
-import SmallWidget from "../../components/SmallWidget";
-import LargeWidget from "../../components/LargeWidget";
+
 
 export default function InicioMedico() {
   return (
@@ -23,8 +22,6 @@ export default function InicioMedico() {
         />
       </div>
       <div className="inicioWidgets">
-        <SmallWidget />
-        <LargeWidget />
       </div>
     </div>
   );

@@ -15,11 +15,17 @@ export default function BuscarPaciente() {
   const history = useHistory();
 
   const redirectEditar = ({cartaoSus}) => {
-    history.push(`/paciente/id/${cartaoSus}`);
+    history.push({
+      pathname: '/paciente/id/',
+      search: `?cartaoSus=${cartaoSus}`      
+    });
   };
 
   const redirectNovaConsulta = ({cartaoSus}) => {
-    history.push(`/consulta/criar/${cartaoSus}`);
+    history.push({
+      pathname: '/consulta/criar/',
+      search: `?cartaoSus=${cartaoSus}`      
+    });
   }
 
   const columns = [

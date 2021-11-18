@@ -1,0 +1,78 @@
+ .editarPacienteWrapperCM {
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .inputAtualizacaoUsuarioCM{
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
+    margin-left: 5px;
+  }
+  
+  .containerPacienteCM {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .mostrarPacienteCM {
+    flex: 1;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -4px #000000;
+    box-shadow: 0px 0px 15px -4px #000000;
+  }
+  
+  .atualizarPacienteCM {
+    flex: 2;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -4px #000000;
+    box-shadow: 0px 0px 15px -4px #000000;
+    margin-left: 20px;
+  }
+  
+  .mostrarPacienteDescCM {
+    margin-left: 10px;
+    font-weight: 600;
+  }
+  
+  .mostrarPacienteBottomTituloCM{
+      font-size: 14px;
+      font-weight: 600;
+      color:rgb(153, 152, 152);
+  
+  }
+  
+  .mostrarPacienteBottomCM{
+      margin-top: 20px;
+  }
+  
+  .mostrarPacienteBottomDadosCM{
+      display: flex;
+      align-items: center;
+      margin: 20px 0px;
+      color: #444;
+  
+  }
+  
+  .mostrarPacienteBottomIdCM{
+      margin-left: 10px;
+  }
+  
+  .atualizarPacienteTituloCM{
+      font-size: 24px;
+      font-weight: 600;
+  
+  }
+  
+  .atualizarPacienteButtonCM{
+      border-radius: 5px;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+      background-color: darkblue;
+      color: white;
+      font-weight: 600;
+  
+  }
+  

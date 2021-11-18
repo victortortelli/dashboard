@@ -1,4 +1,3 @@
-import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
 import "./Atendente.css";
 import Inicio from "./pages/Inicio";
@@ -30,7 +29,7 @@ function Atendente() {
             <Route path="/paciente/buscar">
               <BuscarPaciente />
             </Route>
-            <Route path="/paciente/id/:idPaciente">
+            <Route path="/paciente/id/">
               <EditarPaciente />
             </Route>
             <Route path="/paciente/cadastrar">
@@ -39,7 +38,7 @@ function Atendente() {
             <Route path="/consulta/lista">
               <ListaConsulta />
             </Route>
-            <Route path="/consulta/criar">
+            <Route path="/consulta/criar/">
               <CriarConsulta />
             </Route>
             <Route path="/relatorios">

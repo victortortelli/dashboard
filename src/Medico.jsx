@@ -7,6 +7,7 @@ import SidebarMedico from "./components/SidebarMedico";
 import AtenderConsulta from "./pages/AtenderConsulta";
 import EditarConsultaMedico from "./pages/EditarConsultaMedico"
 import BuscarPaciente from "./pages/BuscarPaciente";
+import GerarReceita from "./pages/GerarReceita";
 
 export default function Medico() {
   return (
@@ -33,6 +34,9 @@ export default function Medico() {
             </Route>
             <Route path="/paciente/buscar">
               <BuscarPaciente />
+            </Route>
+            <Route path="/gerar_receita">
+              <GerarReceita />
             </Route>
           </Switch>
         </section>

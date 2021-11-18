@@ -2,17 +2,10 @@ import React from "react";
 import "./styles.css";
 import "./styles.css";
 import { useState, useEffect } from "react";
-import { BrowserRouter as Route } from "react-router-dom";
 
 export default function CardConsulta() {
   const [data, setData] = useState([]);
 
-  const columns = [
-    { title: "Cartão SUS", field: "cartaoSusPaciente" },
-    { title: "Data", field: "data" },
-    { title: "Urgência", field: "urgencia" },
-    { title: "Status", field: "status" },
-  ];
 
   useEffect(() => {
     fetch("http://localhost:3333/consulta_card")

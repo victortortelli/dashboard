@@ -3,7 +3,6 @@ import "./styles.css";
 import CardConsulta from "../../components/CardConsulta";
 import Grafico from "../../components/Grafico";
 import { dadosConsulta } from "../../dadosTeste";
-import SmallWidget from "../../components/SmallWidget";
 import LargeWidget from "../../components/LargeWidget";
 
 export default function Inicio() {
@@ -24,7 +23,7 @@ export default function Inicio() {
       </div>
       <div className="inicioWidgets">
         {/* <SmallWidget /> */}
-        <LargeWidget />
+        {/* <LargeWidget /> */}
       </div>
     </div>
   );

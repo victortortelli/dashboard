@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.css";
-import { ExitToApp } from "@material-ui/icons";
 // Feito dessa forma para que toda vez que quisermos um ícone, basta chamar o {}.
 // Do contrário ficaria com vários importações de vários ícones
 import { useHistory } from "react-router";
@@ -10,7 +9,6 @@ export default function Topbar() {
 
   function redirectLogin (){
     history.push(`/`);
-    console.log("botao ok")
   };
 
   return (

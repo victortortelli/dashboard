@@ -3,7 +3,6 @@ import "./styles.css";
 import {
   Dashboard,
   AirlineSeatLegroomNormal,
-  LocalHospital,
   FormatListBulleted,
   Search,
   PersonAdd
@@ -34,12 +33,12 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Consultas</h3>
           <ul className="sidebarList">
-            <Link to={"/consulta/criar"} style={{ textDecoration: "none" }}>
+            {/* <Link to={"/consulta/criar"} style={{ textDecoration: "none" }}>
               <li className="sidebarListItem">
                 <LocalHospital className="sidebarIcon" />
                 Criar nova consulta
               </li>
-            </Link>
+            </Link> */}
             <Link to={"/consulta/lista"} style={{ textDecoration: "none" }}>
               <li className="sidebarListItem">
                 <FormatListBulleted className="sidebarIcon" />

@@ -2,7 +2,6 @@ import React from "react";
 import "./styles.css";
 import { useState, useEffect } from "react";
 import MaterialTable from "material-table";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const api = axios.create({
@@ -26,7 +25,14 @@ export default function BuscarUsuario() {
       });
   }, []);
 
-
+  const deletarUsuario = ({id}) => {
+    const r = window.confirm(`Deseja excluir o usuário ${id} ?`);
+    if (r === true) {
+      api.delete(`/usuarios/${id}`, {
+      });
+    }
+  };
+  
   return (
     <div className="buscarPaciente">
       <MaterialTable
@@ -37,13 +43,8 @@ export default function BuscarUsuario() {
           {
             icon: "delete",
             tooltip: "Deletar",
-            //onClick: (event, rowData) => redirectNovaConsulta(rowData),
-          },
-          {
-            icon: "edit",
-            tooltip: "Alterar senha",
-            //onClick: (event, rowData) => redirectEditar(rowData),
-          },
+            onClick: (event, rowData) => deletarUsuario(rowData),
+          }
         ]}
       />
     </div>

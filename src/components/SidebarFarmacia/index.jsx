@@ -9,14 +9,14 @@ export default function SidebarFarmacia() {
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Receitas</h3>
-          <ul className="sidebarList">
+          {/* <ul className="sidebarList">
             <Link to={"/vendas"} style={{ textDecoration: "none" }}>
               <li className="sidebarListItem">
                 <AttachMoney className="sidebarIcon" />
                 Vendas
               </li>
             </Link>
-          </ul>
+          </ul> */}
           <ul className="sidebarList">
             <Link to={"/buscar_receita"} style={{ textDecoration: "none" }}>
               <li className="sidebarListItem">

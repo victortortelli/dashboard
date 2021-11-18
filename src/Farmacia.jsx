@@ -17,7 +17,7 @@ export default function Farmacia() {return (
             <Route exact path="/vendas">
               <VendasFarmacia />
             </Route>
-            <Route path="/buscar_receita">
+            <Route exact path="/buscar_receita">
               <BuscarReceita />
             </Route>
           </Switch>
