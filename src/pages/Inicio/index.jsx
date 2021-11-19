@@ -3,9 +3,11 @@ import "./styles.css";
 import CardConsulta from "../../components/CardConsulta";
 import Grafico from "../../components/Grafico";
 import { dadosConsulta } from "../../dadosTeste";
-import LargeWidget from "../../components/LargeWidget";
 
 export default function Inicio() {
+
+
+
   return (
     <div className="inicio">
       <CardConsulta />
@@ -17,8 +19,9 @@ export default function Inicio() {
           dataKey1="n_urgente"
           dataKey2="p_urgente"
           dataKey3="urgente"
-          dataKey4="emergencia"
-          dataKey5="dia"
+          dataKey4="m_urgente"
+          dataKey5="emergencia"
+          dataKey6="dia"
         />
       </div>
       <div className="inicioWidgets">

@@ -17,8 +17,9 @@ export default function InicioMedico() {
           dataKey1="n_urgente"
           dataKey2="p_urgente"
           dataKey3="urgente"
-          dataKey4="emergencia"
-          dataKey5="dia"
+          dataKey4="m_urgente"
+          dataKey5="emergencia"
+          dataKey6="dia"
         />
       </div>
       <div className="inicioWidgets">
